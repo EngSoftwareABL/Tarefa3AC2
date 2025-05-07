@@ -1,15 +1,16 @@
 package br.com.valueprojects.dominio;
 
-import br.com.valueprojects.dao.EstimativaJavaDao;
-import br.com.valueprojects.infra.EmissorDeSms;
+import java.util.List;
+
 
 public class CriadorEstimativaJava {
-	private final EmissorDeSms sms;
-	private final EstimativaJavaDao dao;
+	
+	
+	private List<AcoesDepoisEstimativa> acoes;
 
-	public CriadorEstimativaJava(EmissorDeSms sms, EstimativaJavaDao dao) {
-		this.sms = sms;
-		this.dao = dao;
+	public CriadorEstimativaJava(List<AcoesDepoisEstimativa> acoes) {
+		
+		this.acoes = acoes;		
 	}
 
 	public EstimativaJava cria(Tarefa tarefa) {
@@ -17,10 +18,11 @@ public class CriadorEstimativaJava {
 		double metrica = tarefa.getMetricaTarefa();
 		
 		EstimativaJava estJava = new EstimativaJava(metrica,
-				produtividadeDesenvolvedorJunior(metrica));
-		sms.emitirSms(estJava);
-		dao.insere(estJava);
-
+		produtividadeDesenvolvedorJunior(metrica));
+		
+		for (AcoesDepoisEstimativa acao: acoes)
+			acao.executa(tarefa);
+		
 		return estJava;
 
 	}

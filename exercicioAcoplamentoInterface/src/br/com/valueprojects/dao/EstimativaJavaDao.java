@@ -1,12 +1,10 @@
 package br.com.valueprojects.dao;
 
-import br.com.valueprojects.dominio.AcoesDepoisEstimativa;
-import br.com.valueprojects.dominio.Tarefa;
+import br.com.valueprojects.dominio.EstimativaJava;
 
-public class EstimativaJavaDao implements AcoesDepoisEstimativa {
+public class EstimativaJavaDao {
 
-	@Override
-	public void executa(Tarefa tarefa) {
+	public void insere(EstimativaJava estJava) {
 		// TODO Auto-generated method stub
 		
 	}
