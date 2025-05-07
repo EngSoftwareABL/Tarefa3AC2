@@ -8,3 +8,5 @@ import static br.com.valueprojects.dominio.TiposJogadores.MESTRE;
 		
 		double geraPontos(Jogador jogador) {}
 }
+
+//clase modificada para interface
