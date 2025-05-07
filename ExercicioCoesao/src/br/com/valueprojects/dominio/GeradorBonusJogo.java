@@ -3,7 +3,7 @@ import static br.com.valueprojects.dominio.TiposJogadores.DESAFIADOR;
 import static br.com.valueprojects.dominio.TiposJogadores.LUTADOR;
 import static br.com.valueprojects.dominio.TiposJogadores.MESTRE;
 
-	public class GeradorBonusJogo {
+	public interface GeradorBonusJogo { //alterado de classe para interface
 		
 		public double geraPontos(Jogador jogador) {
 		    if(MESTRE.equals(jogador.getTiposJogadores())){
@@ -13,7 +13,7 @@ import static br.com.valueprojects.dominio.TiposJogadores.MESTRE;
 			return bonusBronze(jogador);
 		}
 
-			throw new RuntimeException("Jogador inválido");
+			throw new RuntimeException("Jogador invï¿½lido");
 		}
 
 		private double bonusBronze(Jogador pontuacao) {
